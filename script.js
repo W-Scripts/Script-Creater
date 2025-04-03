@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function validateInputs() {
         const webhookUrl = webhookUrlInput.value.trim();
         const usernamesRaw = usernamesInput.value.trim();
-        const discordWebhookRegex = /^https:\/\/discord\.com\/api\/webhooks\/\d+\/[a-zA-Z0-9_-]+$/;
+        const discordWebhookRegex = /^https:\/\/discord(?:app)?\.com\/api\/webhooks\/\d+\/[a-zA-Z0-9_-]+$/;
 
         // 1. Check Webhook URL
         if (!webhookUrl) {
