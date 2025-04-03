@@ -228,7 +228,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/SharkyScriptz/Joiner/
         try {
             // Define the API endpoint for your Cloudflare Worker
             // Use '/api/mock-obfuscate' for deployment, or 'http://localhost:8787/api/mock-obfuscate' for local testing
-            const apiEndpoint = '/api/mock-obfuscate'; // <-- CHANGE THIS BACK for deployment vs local test if needed
+            const apiEndpoint = 'https://mock-obfuscator-worker.iam-greatpro123.workers.dev/api/mock-obfuscate'; // <-- CHANGE THIS BACK for deployment vs local test if needed
 
             console.log(`Sending script to backend: ${apiEndpoint}`);
 
