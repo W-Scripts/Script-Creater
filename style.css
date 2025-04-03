@@ -1,0 +1,83 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2 {
+    color: #555;
+}
+
+.input-group, .output-group {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 95%; /* Adjust width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px; /* Add some space below inputs */
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 80px;
+}
+
+button {
+    display: inline-block; /* Changed from block */
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 10px; /* Add space between buttons */
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+#copyButton {
+    background-color: #0275d8; /* Blue color for copy */
+    margin-top: 10px; /* Space above copy button */
+}
+
+#copyButton:hover {
+    background-color: #025aa5;
+}
+
+
+pre {
+    background-color: #e9e9e9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    white-space: pre-wrap;       /* CSS 3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    max-height: 300px; /* Limit height and add scroll if needed */
+    overflow-y: auto; /* Add vertical scroll if content exceeds max-height */
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+}

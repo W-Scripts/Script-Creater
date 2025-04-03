@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script Configurator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Generate Your Script Configuration</h1>
+
+    <div class="input-group">
+        <label for="webhookUrl">Discord Webhook URL:</label>
+        <input type="text" id="webhookUrl" placeholder="Enter your Discord Webhook URL here">
+    </div>
+
+    <div class="input-group">
+        <label for="usernamesInput">Usernames (one per line):</label>
+        <textarea id="usernamesInput" rows="5" placeholder="user1\nuser2\nuser3"></textarea>
+    </div>
+
+    <button id="generateButton">Generate Script</button>
+
+    <div class="output-group">
+        <h2>Generated Script:</h2>
+        <pre><code id="outputScript">-- Your script will appear here after generation...</code></pre>
+        <button id="copyButton" style="display: none;">Copy to Clipboard</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
