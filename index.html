@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Script Configurator & Obfuscator</title>
+    <title>Script Configurator (Simple)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Use Inter font */
@@ -33,11 +33,11 @@
         #errorMessages {
             background-color: #fee2e2; /* Light red background */
             color: #b91c1c; /* Darker red text */
-            padding: 12px; /* Increased padding */
-            border-radius: 6px; /* Slightly more rounded */
-            border: 1px solid #fecaca; /* Lighter red border */
-            margin-bottom: 1.5rem; /* More space below */
-            font-size: 0.9rem; /* Slightly larger font */
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #fecaca;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -45,7 +45,7 @@
 
     <div class="w-full max-w-3xl px-4">
 
-        <h1 class="text-3xl md:text-4xl font-bold mb-8 text-gray-800 text-center">Script Configurator & Obfuscator</h1>
+        <h1 class="text-3xl md:text-4xl font-bold mb-8 text-gray-800 text-center">Script Configurator (Simple)</h1>
 
         <div id="errorMessages" class="hidden" role="alert">
             </div>
@@ -71,14 +71,14 @@
 
         <div class="text-center my-8">
             <button id="generateButton" class="px-10 py-4 bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-lg font-bold rounded-lg shadow-lg hover:from-blue-700 hover:to-indigo-800 focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-opacity-75 transition duration-200 ease-in-out transform hover:scale-105">
-                Generate & Obfuscate Script
+                Generate & Mock Obfuscate
             </button>
              <p id="loadingIndicator" class="text-gray-600 mt-4 hidden">Processing...</p>
         </div>
 
         <div id="outputSection" class="output-group bg-white p-6 rounded-lg shadow-md hidden">
-            <h2 class="text-xl font-semibold mb-4 text-gray-800">Obfuscated Script:</h2>
-            <pre class="bg-gray-800 text-gray-100 p-4 border border-gray-600 rounded-md max-h-96 overflow-y-auto text-sm font-mono whitespace-pre-wrap break-words"><code id="outputScript">-- Your obfuscated script will appear here...</code></pre>
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Processed Script:</h2>
+            <pre class="bg-gray-800 text-gray-100 p-4 border border-gray-600 rounded-md max-h-96 overflow-y-auto text-sm font-mono whitespace-pre-wrap break-words"><code id="outputScript">-- Your processed script will appear here...</code></pre>
             <button id="copyButton" class="mt-5 px-6 py-2 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition duration-150 ease-in-out">
                 Copy to Clipboard
             </button>
