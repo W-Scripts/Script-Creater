@@ -173,7 +173,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/SharkyScriptz/Joiner/
         try {
             // --- Use the endpoint defined in the JS Obfuscator Worker ---
             // Use relative path for deployment with routing, or full URL for direct call/local test
-            const apiEndpoint = 'http://localhost:8787/api/mock-obfuscate'; // Use your wrangler dev port
+            const apiEndpoint = 'https://mock-obfuscator-worker.iam-greatpro123.workers.dev/api/obfuscate'; // Use your wrangler dev port
             // const apiEndpoint = 'https://your-worker-subdomain.workers.dev/api/obfuscate'; // Example for direct call
 
             console.log(`Sending script to backend: ${apiEndpoint}`);
