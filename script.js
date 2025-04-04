@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingIndicator = document.getElementById('loadingIndicator');
 
     // --- Data: Fruits sorted by rarity ---
-    // Using the full lists and preserving order within rarity groups
     const mythicalFruits = [
         "Kitsune-Kitsune", "Yeti-Yeti", "Gas-Gas", "Leopard-Leopard", "Control-Control",
         "Dough-Dough", "T-Rex-T-Rex", "Spirit-Spirit", "Mammoth-Mammoth", "Venom-Venom"
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Portal-Portal", "Buddha-Buddha", "Rumble-Rumble", "Shadow-Shadow", "Blizzard-Blizzard",
         "Sound-Sound", "Phoenix-Phoenix", "Pain-Pain", "Gravity-Gravity", "Love-Love",
         "Spider-Spider", "Quake-Quake"
-    ]; // No .sort() here
+    ]; // No .sort()
     const sortedFruitsByRarity = [...mythicalFruits, ...legendaryFruits];
     const defaultSelectedFruits = ["Kitsune-Kitsune", "Leopard-Leopard", "Yeti-Yeti", "Gas-Gas"];
 
@@ -153,11 +152,16 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/SharkyScriptz/Joiner/
     // --- Event Listeners ---
     generateButton.addEventListener('click', async () => {
         clearErrors();
+        // Update titles/placeholders for obfuscation
         outputSection.classList.add('hidden');
-        outputScriptElement.textContent = '-- Your processed script will appear here...';
+        outputScriptElement.textContent = '-- Your obfuscated script will appear here...';
+        document.querySelector('#outputSection h2').textContent = 'Obfuscated Script:'; // Update heading
+        generateButton.textContent = 'Generate & Obfuscate Script'; // Update button text
+
         copyButton.textContent = 'Copy to Clipboard';
         copyButton.classList.remove('bg-green-500', 'hover:bg-green-600');
         copyButton.classList.add('bg-green-600', 'hover:bg-green-700');
+
 
         if (!validateInputs()) { return; }
 
@@ -167,10 +171,10 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/SharkyScriptz/Joiner/
 
         // --- Call Backend ---
         try {
-            // --- IMPORTANT: Use the FULL URL of your deployed Worker ---
-            // This is required for the deployed frontend on GitHub Pages
-            // to call the Worker directly (free method, no custom domain routing).
-            const apiEndpoint = 'https://mock-obfuscator-worker.iam-greatpro123.workers.dev/api/mock-obfuscate';
+            // --- Use the endpoint defined in the JS Obfuscator Worker ---
+            // Use relative path for deployment with routing, or full URL for direct call/local test
+            const apiEndpoint = '/api/obfuscate'; // Path used in js_obfuscator_worker_code_v2
+            // const apiEndpoint = 'https://your-worker-subdomain.workers.dev/api/obfuscate'; // Example for direct call
 
             console.log(`Sending script to backend: ${apiEndpoint}`);
 
@@ -191,6 +195,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/SharkyScriptz/Joiner/
                 throw new Error(errorMsg);
             }
 
+            // Get the processed (obfuscated) script from the response body
             const processedScript = await response.text();
 
             // --- Display Result ---
